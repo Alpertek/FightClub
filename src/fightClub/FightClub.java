@@ -17,13 +17,22 @@ public class FightClub {
         int fighter2Health = 100;
 
         int totalPunches = 0;
+        int fighter1PunchCount = 0;
+        int fighter2PunchCount = 0;
         while (true) {
+
             int knockout = random.nextInt(10) + 1;
-            totalPunches++;
             int whichFighter = random.nextInt(2) + 1;
             int punch = random.nextInt(10);
-            System.out.println("--------- Punch = " + totalPunches + " ---------");
+
+            Thread.sleep(1000);
+
+            totalPunches++;
+            System.out.println("--------- Total Hit = " + totalPunches + " ---------");
+
             if (whichFighter == 1) {
+                fighter1PunchCount++;
+                System.out.println(fighter1+"'s "+fighter1PunchCount+". punch :");
                 if (punch == knockout) {
                     System.out.println(fighter1 + " knocks out " + fighter2);
                     break;
@@ -37,7 +46,7 @@ public class FightClub {
                     if (fighter2Health != 0) {
                         System.out.println(fighter1 + "'s Health = " + fighter1Health);
                         System.out.println(fighter2 + "'s Health = " + fighter2Health + " " + fighter2 + " loses " + punch + " points");
-                        Thread.sleep(1000);
+
                     } else {
                         System.out.println(fighter1 + "'s Health = " + fighter1Health);
                         System.out.println(fighter2 + "'s Health = " + fighter2Health);
@@ -46,6 +55,8 @@ public class FightClub {
                     }
                 }
             } else {
+                fighter2PunchCount++;
+                System.out.println(fighter2+"'s "+fighter2PunchCount+". punch :");
                 if (punch == knockout) {
                     System.out.println(fighter2 + " knocks out " + fighter1);
                     break;
@@ -60,7 +71,7 @@ public class FightClub {
                         System.out.println(fighter1 + "'s Health = " + fighter1Health + " " + fighter1 + " loses " + punch + " points");
                         System.out.println(fighter2 + "'s Health = " + fighter2Health);
 
-                        Thread.sleep(1000);
+
                     } else {
                         System.out.println("fighter1Health = " + fighter1Health);
                         System.out.println("fighter2Health = " + fighter2Health);
